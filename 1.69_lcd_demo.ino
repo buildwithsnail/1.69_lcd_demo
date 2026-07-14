@@ -1,18 +1,3 @@
-/*
- * DEBUG-Sketch: Waveshare 1.69" LCD — Arduino Nano ESP32
- *
- * Öffne nach dem Upload den Serial Monitor (115200 Baud)
- * und schau welche Zeile als letzte erscheint.
- *
- * Verdrahtung bleibt gleich:
- *  DIN  → D11 (GPIO47)
- *  CLK  → D13 (GPIO48)
- *  CS   → D10 (GPIO21)
- *  DC   → D9  (GPIO45)
- *  RST  → D8  (GPIO17)
- *  BL   → 3V3 (direkt, kein Pin nötig)
- */
-
 #include <LovyanGFX.hpp>
 
 #define LCD_MOSI  38
@@ -31,7 +16,7 @@ public:
       auto cfg = _bus.config();
       cfg.spi_host   = SPI3_HOST;
       cfg.spi_mode   = 0;
-      cfg.freq_write = 10000000;  // 10 MHz – langsam zum Debuggen
+      cfg.freq_write = 10000000; 
       cfg.pin_sclk   = LCD_SCK;
       cfg.pin_mosi   = LCD_MOSI;
       cfg.pin_miso   = -1;
@@ -63,7 +48,6 @@ public:
 
 LGFX lcd;
 
-// extern const uint8_t ChatGPTImage[];  // <-- Namen anpassen!
 
 extern const unsigned short pic[];
 
@@ -72,15 +56,12 @@ void setup() {
   lcd.setRotation(0);
 
   lcd.setSwapBytes(true);
-  // Bild anzeigen: x=0, y=0, Breite=240, Höhe=280
-  // RGB565, 16-bit big-endian
   lcd.pushImage(0, 0, 240, 280, pic);
 }
 void loop() {
   // static bool textShown = false;
 
   // if (!textShown) {
-  //   // Schwarzer Hintergrund für bessere Lesbarkeit
   //   lcd.fillRoundRect(25, 235, 190, 32, 8, TFT_BLACK);
 
   //   lcd.setTextDatum(lgfx::textdatum_t::middle_center);
