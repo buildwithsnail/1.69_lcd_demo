@@ -76,7 +76,22 @@ void setup() {
   // RGB565, 16-bit big-endian
   lcd.pushImage(0, 0, 240, 280, pic);
 }
-void loop() {}
+void loop() {
+  // static bool textShown = false;
+
+  // if (!textShown) {
+  //   // Schwarzer Hintergrund für bessere Lesbarkeit
+  //   lcd.fillRoundRect(25, 235, 190, 32, 8, TFT_BLACK);
+
+  //   lcd.setTextDatum(lgfx::textdatum_t::middle_center);
+  //   lcd.setTextColor(TFT_WHITE);
+  //   lcd.setTextSize(2);
+
+  //   lcd.drawString("boring lcd?", 120, 251);
+
+  //   textShown = true;
+  // }
+}
 
 
 
